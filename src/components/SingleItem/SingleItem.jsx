@@ -2,7 +2,11 @@
 
 import React from "react";
 import "./SingleItem.css";
-import { changeName, changeDataType, changeIsRequiredStatus } from "../../features/dataSlice";
+import {
+	changeName,
+	changeDataTypeReducer,
+	changeIsRequiredStatus,
+} from "../../features/dataSlice";
 import { useDispatch } from "react-redux";
 
 const SingleItem = ({ serialNo, elementIndex }) => {
@@ -34,7 +38,9 @@ const SingleItem = ({ serialNo, elementIndex }) => {
 	};
 
 	const changeDataType = (e, elementIndex) => {
-		console.log(e.target.value, elementIndex);
+		// console.log(e.target.value, elementIndex);
+		let dataType = e.target.value;
+		dispatch(changeDataTypeReducer({ dataType, elementIndex }));
 	};
 
 	return (

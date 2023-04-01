@@ -29,8 +29,18 @@ export const dataSlice = createSlice({
 			state.data = newState;
 			console.log(state.data);
 		},
-		changeDataType: (state, actions) => {
+		changeDataTypeReducer: (state, actions) => {
 			// logic for changeDataType
+			let currentStateArray = state.data;
+			let indexOfObjectToBeChanged = actions.payload.elementIndex;
+			let newState = currentStateArray.map((currentObject, index) => {
+				if (index === indexOfObjectToBeChanged) {
+					currentObject.dataType = actions.payload.dataType;
+				}
+				return currentObject;
+			});
+			console.log(current(state.data));
+			// console.log(indexOfObjectToBeChanged);
 		},
 		changeIsRequiredStatus: (state, actions) => {
 			// logic for changeIsRequiredStatus
@@ -39,6 +49,7 @@ export const dataSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addData, changeName, changeDataType, changeIsRequiredStatus } = dataSlice.actions;
+export const { addData, changeName, changeDataTypeReducer, changeIsRequiredStatus } =
+	dataSlice.actions;
 
 export default dataSlice.reducer;
