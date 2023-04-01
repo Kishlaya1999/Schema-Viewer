@@ -13,12 +13,9 @@ export const dataSlice = createSlice({
 		addData: (state, actions) => {
 			// Adds a new data in the list
 			state.data = [...state.data, actions.payload];
-			// console.log(actions.payload);
-			// console.log(state.data);
 		},
 		changeName: (state, actions) => {
 			let currentStateArray = state.data;
-			// let objectToBechanged = currentStateArray[actions.payload.elementIndex];
 			let newName = actions.payload.newName;
 			let newState = currentStateArray.map((currObject, index) => {
 				if (actions.payload.elementIndex == index) {
@@ -27,7 +24,7 @@ export const dataSlice = createSlice({
 				return currObject;
 			});
 			state.data = newState;
-			console.log(state.data);
+			// console.log(state.data);
 		},
 		changeDataTypeReducer: (state, actions) => {
 			// logic for changeDataType
@@ -39,17 +36,44 @@ export const dataSlice = createSlice({
 				}
 				return currentObject;
 			});
-			console.log(current(state.data));
+			state.data = newState;
+			// console.log(current(state.data));
 			// console.log(indexOfObjectToBeChanged);
 		},
-		changeIsRequiredStatus: (state, actions) => {
+		changeIsRequiredStatusReducer: (state, actions) => {
 			// logic for changeIsRequiredStatus
+			let currentStateArray = state.data;
+			let indexOfObjectToBeChanged = actions.payload.elementIndex;
+			let newState = currentStateArray.map((currentObject, index) => {
+				if (index === indexOfObjectToBeChanged) {
+					currentObject.isRequired = actions.payload.isRequiredStatus;
+				}
+				return currentObject;
+			});
+			state.data = newState;
+			// console.log(current(state.data));
+			// console.log(current(state.data));
+		},
+		deleteData: (state, actions) => {
+			// logic for deleting data
+			let currentStateArray = state.data;
+			let indexOfObjectToBeChanged = actions.payload;
+			let newState = currentStateArray.filter(
+				(currentObject, index) => index !== indexOfObjectToBeChanged
+			);
+			state.data = newState;
+			console.log(state.data);
 		},
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { addData, changeName, changeDataTypeReducer, changeIsRequiredStatus } =
-	dataSlice.actions;
+export const {
+	addData,
+	changeName,
+	changeDataTypeReducer,
+	changeIsRequiredStatusReducer,
+	deleteData,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

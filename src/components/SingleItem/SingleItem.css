@@ -14,7 +14,12 @@
 
 .item__left {
      display: flex;
+     align-items: center;
      gap: 10px;
+}
+
+.item__serial {
+     color: hsl(0, 0%, 70%);
 }
 
 .item__name_container {
@@ -32,11 +37,14 @@
 
 .item__name {
      cursor: pointer;
+     display: flex;
 }
 
 .item__name_edit_container {
+     width: 100px;
      height: 30px;
      outline: none;
+     border: none;
      padding: 0 5px;
 }
 
@@ -64,6 +72,8 @@
      gap: 10px;
 }
 
+
+/* Taken from internet */
 .toggle-switch {
      display: inline-block;
      position: relative;
