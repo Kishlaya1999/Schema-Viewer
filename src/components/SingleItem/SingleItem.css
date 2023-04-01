@@ -1,0 +1,108 @@
+.interface__single_item {
+     display: flex;
+     justify-content: space-between;
+     padding: 10px 30px;
+}
+
+.interface__single_item:hover {
+     background-color: hsl(0, 0%, 90%);
+}
+
+.interface__single_item:hover .item__right {
+     display: flex;
+}
+
+.item__left {
+     display: flex;
+     gap: 10px;
+}
+
+.item__name_container {
+     display: flex;
+     gap: 5px;
+     align-items: center;
+}
+
+.item__name_container i {
+     color: white;
+     padding: 5px;
+     background-color: green;
+     cursor: pointer;
+}
+
+.item__name {
+     cursor: pointer;
+}
+
+.item__name_edit_container {
+     height: 30px;
+     outline: none;
+     padding: 0 5px;
+}
+
+.item__left select {
+     outline: none;
+     width: 100px;
+     height: 30px;
+     padding: 5px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     font-size: 16px;
+     color: #555;
+     background-color: #fff;
+}
+
+.item__left select option {
+     font-size: 16px;
+     color: #555;
+     background-color: #fff;
+}
+
+
+.item__right {
+     display: none;
+     gap: 10px;
+}
+
+.toggle-switch {
+     display: inline-block;
+     position: relative;
+     width: 40px;
+     height: 20px;
+}
+
+.toggle-switch input[type="checkbox"] {
+     display: none;
+}
+
+.toggle-slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #7c7c7c;
+     border-radius: 30px;
+     transition: all 0.3s ease-in-out;
+}
+
+.toggle-slider:before {
+     position: absolute;
+     content: "";
+     height: 15px;
+     width: 15px;
+     left: 3px;
+     bottom: 2px;
+     background-color: white;
+     border-radius: 50%;
+     transition: all 0.3s ease-in-out;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.toggle-slider {
+     background-color: #2196F3;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.toggle-slider:before {
+     transform: translateX(19px);
+}
