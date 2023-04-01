@@ -14,6 +14,20 @@ body {
 .App {
   height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.save_button {
+  outline: none;
+  border: none;
+  background-color: hsl(0, 0%, 80%);
+  padding: 10px 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.save_button:hover {
+  background-color: hsl(0, 0%, 75%);
 }

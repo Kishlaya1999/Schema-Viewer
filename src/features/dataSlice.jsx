@@ -1,6 +1,6 @@
 /** @format */
 
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	data: [],
@@ -24,7 +24,6 @@ export const dataSlice = createSlice({
 				return currObject;
 			});
 			state.data = newState;
-			// console.log(state.data);
 		},
 		changeDataTypeReducer: (state, actions) => {
 			// logic for changeDataType
@@ -37,8 +36,6 @@ export const dataSlice = createSlice({
 				return currentObject;
 			});
 			state.data = newState;
-			// console.log(current(state.data));
-			// console.log(indexOfObjectToBeChanged);
 		},
 		changeIsRequiredStatusReducer: (state, actions) => {
 			// logic for changeIsRequiredStatus
@@ -51,8 +48,6 @@ export const dataSlice = createSlice({
 				return currentObject;
 			});
 			state.data = newState;
-			// console.log(current(state.data));
-			// console.log(current(state.data));
 		},
 		deleteData: (state, actions) => {
 			// logic for deleting data
@@ -62,12 +57,10 @@ export const dataSlice = createSlice({
 				(currentObject, index) => index !== indexOfObjectToBeChanged
 			);
 			state.data = newState;
-			console.log(state.data);
 		},
 	},
 });
 
-// Action creators are generated for each case reducer function
 export const {
 	addData,
 	changeName,

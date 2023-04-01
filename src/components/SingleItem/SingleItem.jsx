@@ -33,7 +33,20 @@ const SingleItem = ({ serialNo, elementIndex, isRequired, dataType }) => {
 		let nameSpanContainer = checkBtn.parentNode.children;
 		let nameSpan = nameSpanContainer[0];
 		let inputTag = nameSpanContainer[1];
-		if (input.value) nameSpan.innerHTML = inputTag.value;
+		if (inputTag.value === "") {
+			toast.error("No name added !!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "dark",
+			});
+			return;
+		}
+		nameSpan.innerHTML = inputTag.value;
 		inputTag.style.display = "none";
 		checkBtn.style.display = "none";
 		let newName = inputTag.value;
@@ -55,6 +68,19 @@ const SingleItem = ({ serialNo, elementIndex, isRequired, dataType }) => {
 	const deleteItemFromList = (e, elementIndex) => {
 		dispatch(deleteData(elementIndex));
 		toast.error("One field deleted", {
+			position: "top-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "dark",
+		});
+	};
+
+	const objectNotification = () => {
+		toast.info("Feature Yet to be developed", {
 			position: "top-right",
 			autoClose: 3000,
 			hideProgressBar: false,
@@ -115,7 +141,7 @@ const SingleItem = ({ serialNo, elementIndex, isRequired, dataType }) => {
 						</label>
 					</div>
 					{dataType === "object" ? (
-						<button className="btn">
+						<button className="btn" onClick={objectNotification}>
 							<i className="fa-solid fa-plus"></i>
 						</button>
 					) : (
