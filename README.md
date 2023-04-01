@@ -21,7 +21,14 @@ npm install
 npm run dev
 ```
 
-
+## Techstack Used 
+ <a href="http://reactjs.org/">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40"/>  
+  </a>
+<a href="https://redux.js.org/">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" width="35"/>
+  </a>
+ 
 
 ## Screenshots
 ![schema-viewer](https://user-images.githubusercontent.com/66960784/229303611-b66c2686-23ce-4229-bc46-fef10904c681.png)
